@@ -22,11 +22,13 @@ import ManageProducts from '../pages/dashboard/admin/manageProduct/ManageProduct
 import UpdateProduct from "../pages/dashboard/admin/manageProduct/UpdateProduct";
 import ManageUsers from "../pages/dashboard/admin/manageUsers/ManageUsers";
 import ManageOrders from "../pages/dashboard/admin/manageOrders/ManageOrders";
+import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
+        errorElement: <ErrorPage />,
         children: [
             { path: "/", element: <Home /> },
             { path: "/categories/:categoryName", element: <CategoryPage /> },
