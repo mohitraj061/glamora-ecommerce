@@ -19,7 +19,6 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const [logoutUser] = useLogoutUserMutation();
     const { user } = useSelector(state => state.auth);
-    console.log(user);
     const navigate = useNavigate();
 
     const handleLogout = async () => {
