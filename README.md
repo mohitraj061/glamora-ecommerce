@@ -22,7 +22,7 @@ Glamora is a modern e-commerce platform focused on ladies' fashion. It provides 
 - **Frontend:** React + Vite, Redux, React Router, Tailwind CSS
 - **Backend:** Node.js, Express, MongoDB, Mongoose
 - **Authentication:** JWT, Cookies
-- **Payments:** Stripe Payment
+- **Payments:** Stripe
 - **Image Hosting:** Cloudinary
 
 ---
@@ -42,7 +42,7 @@ Glamora is a modern e-commerce platform focused on ladies' fashion. It provides 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/mohitraj061/glamora-women-store-MERN.git
+git clone https://github.com/mohitraj061/glamora-ecommerce.git
 cd glamora-ecommerce
 ```
 ---
@@ -57,6 +57,15 @@ npm install
 #### Configure Environment Variables
 
 Create a .env file in the backend root directory (see .env.sample file in the backend folder for reference or use the following):
+
+```
+MONGODB_URL=""
+JWT_SECRET_KEY=""
+STRIPE_SECRET_KEY=""
+CLOUDINARY_CLOUD_NAME=""
+CLOUDINARY_API_KEY=""
+CLOUDINARY_API_SECRET=""
+```
 
 
 #### Start the Backend Server
@@ -78,7 +87,7 @@ npm install
 Create a .env.local file in the frontend root directory (see .env.local for example):
 
 ```
-VITE_STRIPE_PK="your_stripe_publishable_key"
+VITE_STRIPE_PK=""
 ```
 
 #### Start the Frontend
