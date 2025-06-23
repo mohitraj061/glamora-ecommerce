@@ -48,6 +48,7 @@ const SingleProduct = () => {
 
             <section className='section__container mt-8'>
                 <div className='flex flex-col md:flex-row items-center gap-8'>
+
                     {/* Product Image */}
                     <div className='w-full md:w-1/2'>
                         <img
@@ -91,7 +92,7 @@ const SingleProduct = () => {
                                 e.stopPropagation()
                                 handleAddToCart(singleProduct)
                             }}
-                            className="mt-6 px-6 py-3 bg-primary text-white rounded-md">
+                            className="mt-6 px-6 py-3 bg-primary text-white rounded-md hover:bg-red-700">
                             Add to Cart
                         </button>
                     </div>
