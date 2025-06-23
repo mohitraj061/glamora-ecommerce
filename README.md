@@ -75,7 +75,7 @@ npm run start:dev
 ```
 ---
 
-### 2. Frontend Setup
+### 3. Frontend Setup
 
 ```bash
 cd ../frontend
