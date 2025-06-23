@@ -84,30 +84,28 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     try {
         const productId = req.params.id;
-        // console.log(postId);
 
-        const product = await Products.findById(productId).populate(
-            "author",
-            "email username"
-        );
-        // console.log(post);
+        let product = null;
+        // Try to find by MongoDB ObjectId
+        if (/^[0-9a-fA-F]{24}$/.test(productId)) {
+            product = await Products.findById(productId).populate("author", "email username");
+        }
+        // If not found and id is a number, try to find by numeric id
+        if (!product && !isNaN(productId)) {
+            product = await Products.findOne({ id: Number(productId) }).populate("author", "email username");
+        }
 
         if (!product) {
-            res.status(404)
-                .send({ message: "Product not found" });
-        };
+            return res.status(404).send({ message: "Product not found" });
+        }
 
-        const reviews = await Reviews.find({ productId }).populate(
-            "userId",
-            "username email"
-        );
+        const reviews = await Reviews.find({ productId: product._id }).populate("userId", "username email");
 
         res.status(200).send({ product, reviews });
 
     } catch (error) {
         console.error("Error fetching product:", error);
-        res.status(500)
-            .send({ message: "Failed to fetch the product" });
+        res.status(500).send({ message: "Failed to fetch the product" });
     }
 });
 
